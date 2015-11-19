@@ -21,12 +21,6 @@ public class TimeItem {
     private ObjectProperty<LocalDate> timeActivated;
     
 
-    /**
-     * @return the jobCode
-     */
-    public IntegerProperty getJobCode() {
-        return jobCode;
-    }
     
     public TimeItem(int jobCode, String description, int timeSpent){
         
@@ -36,6 +30,30 @@ public class TimeItem {
         setTimeSpent(timeSpent);
         setActive(false);
     }
+    
+    /**
+     * @return the jobCode
+     */
+    public Integer getJobCode() {
+        return jobCode.get();
+    }
+    
+    /**
+     * @return the jobCode
+     */
+    public IntegerProperty getJobCodeProperty() {
+        return jobCode;
+    }
+    
+    /**
+     * @return the jobCode
+     */
+    public StringProperty getJobCodeStrProperty() {
+        StringProperty returnProp = new SimpleStringProperty();
+        returnProp.set(jobCode.toString()); 
+        return returnProp;
+    }
+    
     /**
      * @param jobCode the jobCode to set
      */
@@ -69,6 +87,15 @@ public class TimeItem {
      */
     public IntegerProperty getTimeSpentMins() {
         return new SimpleIntegerProperty(timeSpent.intValue()/60);
+    }
+    
+    /**
+     * @return the timeSpent
+     */
+    public StringProperty getTimeSpentStrProperty() {
+        StringProperty returnProp = new SimpleStringProperty();
+        returnProp.set(getTimeSpentMins().toString()); 
+        return returnProp;
     }
     /**
      * @param timeSpent the timeSpent to set

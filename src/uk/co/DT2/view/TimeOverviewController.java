@@ -21,17 +21,38 @@ public class TimeOverviewController {
     private TableView<TimeItem> timeItemTable;
     
     @FXML
-    private TableColumn<TimeItem, Integer> jobCodeColumn;
+    private TableColumn<TimeItem, String> jobCodeColumn;
+    
+    //private TableColumn<TimeItem, Integer> jobCodeColumn;
     
     @FXML
     private TableColumn<TimeItem, String> descriptionColumn;
     
     @FXML
-    private TableColumn<TimeItem, Integer> timeSpentColumn;
+    private TableColumn<TimeItem, String> timeSpentColumn;
+    //private TableColumn<TimeItem, Integer> timeSpentColumn;
+    
+    @FXML
+    private TableColumn<TimeItem, Boolean> activeColumn;
     
     private MainApp mainApp;
     
-    /* public method called from main app to pass reference to itself to controller
+    // constructor
+    public TimeOverviewController(){}
+    
+    // initialisation- appears to run automatically
+    
+    @FXML
+    private void initialize(){
+        // load column data
+        jobCodeColumn.setCellValueFactory(cellData -> cellData.getValue().getJobCodeStrProperty());
+        descriptionColumn.setCellValueFactory(cellData -> cellData.getValue().getDescription());
+        timeSpentColumn.setCellValueFactory(cellData -> cellData.getValue().getTimeSpentStrProperty());
+        activeColumn.setCellValueFactory(cellData -> cellData.getValue().getActive());
+    
+    }
+    
+    /* public method called from main app to pass reference of itself to controller
     * @param mainApp
     */
     
