@@ -5,7 +5,7 @@
  */
 package uk.co.DT2.view;
 
-import dt2.MainApp;
+import uk.co.DT2.MainApp;
 import javafx.fxml.FXML;
 
 /**

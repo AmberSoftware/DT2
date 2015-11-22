@@ -5,7 +5,7 @@
  */
 package uk.co.DT2.view;
 
-import dt2.MainApp;
+import uk.co.DT2.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -58,6 +58,8 @@ public class TimeOverviewController {
     
     public void setMainApp(MainApp mainApp){
         this.mainApp=mainApp;
+        // Add observable list data to the table
+        timeItemTable.setItems(mainApp.getTimeItemData());
     }
     
     @FXML
