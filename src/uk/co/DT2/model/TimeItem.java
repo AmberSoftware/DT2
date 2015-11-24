@@ -14,11 +14,11 @@ import javafx.beans.property.*;
  * @author Mike
  */
 public class TimeItem {
-    private IntegerProperty jobCode = new SimpleIntegerProperty();
-    private StringProperty description = new SimpleStringProperty();
-    private IntegerProperty timeSpent = new SimpleIntegerProperty();
-    private BooleanProperty active = new SimpleBooleanProperty();
-    private ObjectProperty<LocalDate> timeActivated;
+    private final IntegerProperty jobCode = new SimpleIntegerProperty();
+    private final StringProperty description = new SimpleStringProperty();
+    private final IntegerProperty timeSpent = new SimpleIntegerProperty();
+    private final BooleanProperty active = new SimpleBooleanProperty();
+    private ObjectProperty<LocalDate> timeActivated ;
     
 
     

@@ -7,18 +7,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.DT2.view.TimeOverviewController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.DT2.view.TimeOverviewController">
    <children>
       <SplitPane dividerPositions="0.6153846153846154" layoutX="182.0" layoutY="94.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane prefHeight="160.0" prefWidth="150.0">
                <children>
-                  <TableView layoutX="-39.0" layoutY="68.0" prefHeight="242.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="timeItemTable" layoutX="-39.0" layoutY="68.0" prefHeight="242.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Job Code" />
-                      <TableColumn prefWidth="75.0" text="Description" />
-                        <TableColumn prefWidth="75.0" text="Time" />
-                        <TableColumn prefWidth="75.0" text="Active" />
+                      <TableColumn fx:id="jobCodeColumn" prefWidth="75.0" text="Job Code" />
+                      <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
+                        <TableColumn fx:id="timeSpentColumn" prefWidth="75.0" text="Time" />
+                        <TableColumn fx:id="activeColumn" prefWidth="75.0" text="Active" />
                     </columns>
                   </TableView>
                </children>

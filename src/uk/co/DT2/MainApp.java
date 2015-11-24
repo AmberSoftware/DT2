@@ -71,7 +71,7 @@ public class MainApp extends Application {
             loader.setLocation(MainApp.class.getResource("view/RootLayout.fxml"));
 
             // load MainApp's rootLayout member
-            this.rootLayout = (BorderPane) loader.load();
+            rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
@@ -81,6 +81,8 @@ public class MainApp extends Application {
             // give it access to the MainApp
             RootLayoutController controller = loader.getController();
             controller.setMainApp(this);
+            
+            primaryStage.show();
             
         }
         catch(IOException ex){
