@@ -26,6 +26,12 @@
           <AnchorPane>
                <children>
                   <Label layoutX="47.0" layoutY="14.0" text="Active" />
+                  <ButtonBar layoutX="319.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" text="Delete" />
+                        <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" />
+                    </buttons>
+                  </ButtonBar>
                   <Button layoutX="543.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                </children>
             </AnchorPane>

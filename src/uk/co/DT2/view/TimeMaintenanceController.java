@@ -53,8 +53,51 @@ public class TimeMaintenanceController {
     public void setTimeItem(TimeItem timeItem){
         this.timeItem = timeItem;
         jobCodeField.setText(timeItem.getJobCode().toString());
-        descriptionField.setText(timeItem.getDescription().toString());
-        timeSpentField.setText(timeItem.getTimeSpentMins().toString());
+        descriptionField.setText(timeItem.getDescriptionStr());
+        timeSpentField.setText(timeItem.getTimeSpentMinsInt().toString());
                 
+    }
+    
+    /**
+     * Returns OKClicked
+     */
+    public boolean isOKClicked(){
+        return OKClicked;
+    }
+    /**
+     * Called when the user clicks ok.
+     */
+    @FXML
+    private void handleOK() {
+        if (isInputValid()) {
+            String jobst = jobCodeField.getText();
+            int jobint=0;
+            jobint = Integer.getInteger(jobst);
+            
+            timeItem.setJobCode(Integer.getInteger(jobCodeField.toString()));
+            timeItem.setDescription(descriptionField.toString());
+            timeItem.setTimeSpentMins(Integer.getInteger(timeSpentField.toString()));
+
+            OKClicked = true;
+            maintenanceStage.close();
+        }
+    }
+
+    /**
+     * Called when the user clicks ok.
+     */
+    @FXML
+    private void handleCancel() {
+        OKClicked = false;
+        maintenanceStage.close();
+    }
+    
+    /**
+     * Validate user input
+     */
+    
+    private boolean isInputValid(){
+        //TODO
+        return true;
     }
 }

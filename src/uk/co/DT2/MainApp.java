@@ -17,9 +17,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import uk.co.DT2.model.TimeItem;
 import uk.co.DT2.view.RootLayoutController;
+import uk.co.DT2.view.TimeMaintenanceController;
 import uk.co.DT2.view.TimeOverviewController;
 
 /**
@@ -113,8 +115,47 @@ public class MainApp extends Application {
         }
         
     }
-    
 
+        public boolean showTimeMaintenance(TimeItem timeItem){
+        try{
+            // create new FXML loader and use FXML file to create contents
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/TimeMaintenance.fxml"));
+            
+            // create object reference for maintenance
+            AnchorPane timeMaintenancePage = (AnchorPane) loader.load();
+
+            // Create new stage for maintenance window
+            Stage maintenanceStage = new Stage();
+            maintenanceStage.setTitle("Edit Time Entry");
+            maintenanceStage.initModality(Modality.WINDOW_MODAL);
+            maintenanceStage.initOwner(primaryStage);
+            Scene scene = new Scene(timeMaintenancePage);
+            maintenanceStage.setScene(scene);
+            
+            // load time item in to screen 
+            TimeMaintenanceController controller = loader.getController();
+            controller.setMaintenanceStage(maintenanceStage);
+            controller.setTimeItem(timeItem);
+            
+            // Show time maintenenace window
+            maintenanceStage.showAndWait();
+
+            return controller.isOKClicked();
+            }
+        
+            catch (IOException e) {
+            e.printStackTrace();
+            return false;
+            }            
+        
+    }
+    /**
+     * Return primary stage
+     */    
+        public Stage getPrimaryStage(){
+            return primaryStage;
+        }
     /**
      * @param args the command line arguments
      */

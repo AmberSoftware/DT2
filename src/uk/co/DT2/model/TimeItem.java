@@ -6,7 +6,9 @@
 package uk.co.DT2.model;
 
 import java.time.LocalDate;
+import javafx.beans.Observable;
 import javafx.beans.property.*;
+import javafx.beans.value.ObservableValue;
 //import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
@@ -48,6 +50,23 @@ public class TimeItem {
     /**
      * @return the jobCode
      */
+    public ObservableValue getJobCodeProp() {
+        return jobCode;
+    }
+    
+    /**
+     * @return the jobCode
+     */
+    //public ObservableValue<Integer> getJobCodeObVal() {
+    //    
+    //    ObservableValue<Integer> jobCodeObVal;
+    //    jobCodeObVal.
+    //    return jobCodeObVal;
+    //}
+    
+    /**
+     * @return the jobCode
+     */
     public StringProperty getJobCodeStrProperty() {
         StringProperty returnProp = new SimpleStringProperty();
         returnProp.set(jobCode.toString()); 
@@ -68,6 +87,10 @@ public class TimeItem {
         return description;
     }
 
+    public String getDescriptionStr() {
+        return description.get();
+    }
+
     /**
      * @param description the description to set
      */
@@ -81,12 +104,20 @@ public class TimeItem {
     public IntegerProperty getTimeSpent() {
         return timeSpent;
     }
+    
+    public ObservableValue getTimeSpentProp(){
+        return timeSpent;
+    }
 
     /**
      * @return the timeSpent in mins
      */
     public IntegerProperty getTimeSpentMins() {
         return new SimpleIntegerProperty(timeSpent.intValue()/60);
+    }
+    
+    public Integer getTimeSpentMinsInt() {
+        return timeSpent.intValue()/60;
     }
     
     /**
@@ -102,6 +133,10 @@ public class TimeItem {
      */
     public void setTimeSpent(int timeSpent) {
         this.timeSpent.set(timeSpent);
+    }
+
+    public void setTimeSpentMins(int timeSpent) {
+        this.timeSpent.set(timeSpent*60);
     }
 
     /**
@@ -142,3 +177,10 @@ public class TimeItem {
         return returnStr;
     }
 }
+
+// class ReturnVal implements ObservableValue{
+//     public ObservableValue<Integer> getValue(){
+//         
+//     }
+        
+//    }
