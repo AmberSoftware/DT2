@@ -6,9 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.DT2.view.TimeMaintenanceController">
+<AnchorPane id="AnchorPane" prefHeight="219.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.DT2.view.TimeMaintenanceController">
    <children>
-      <ButtonBar layoutX="386.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0">
+      <ButtonBar layoutX="14.0" layoutY="155.0" prefHeight="50.0" prefWidth="444.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
             <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleOK" text="OK" />
@@ -17,9 +17,9 @@
       <Label layoutX="14.0" layoutY="51.0" text="Job Code" />
       <Label layoutX="14.0" layoutY="86.0" text="Description" />
       <Label layoutX="14.0" layoutY="123.0" text="Time Spent" />
-      <TextField fx:id="jobCodeField" layoutX="75.0" layoutY="48.0" />
-      <TextField fx:id="descriptionField" layoutX="75.0" layoutY="82.0" />
-      <TextField fx:id="timeSpentField" layoutX="75.0" layoutY="119.0" />
-      <Label layoutX="218.0" layoutY="14.0" text="Edit Time Entry" />
+      <TextField fx:id="jobCodeField" layoutX="92.0" layoutY="46.0" prefHeight="27.0" prefWidth="71.0" />
+      <TextField fx:id="descriptionField" layoutX="92.0" layoutY="81.0" prefHeight="27.0" prefWidth="364.0" />
+      <TextField fx:id="timeSpentField" layoutX="92.0" layoutY="118.0" prefHeight="17.0" prefWidth="71.0" />
+      <Label alignment="TOP_CENTER" layoutX="163.0" layoutY="14.0" text="Edit Time Entry" textAlignment="CENTER" />
    </children>
 </AnchorPane>

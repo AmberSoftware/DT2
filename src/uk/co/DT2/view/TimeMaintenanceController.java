@@ -6,6 +6,7 @@
 package uk.co.DT2.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import uk.co.DT2.model.TimeItem;
@@ -48,6 +49,7 @@ public class TimeMaintenanceController {
     
     /**
      * Loads in TimeItem to maintain
+     * @param timeItem
      */
     
     public void setTimeItem(TimeItem timeItem){
@@ -65,18 +67,14 @@ public class TimeMaintenanceController {
         return OKClicked;
     }
     /**
-     * Called when the user clicks ok.
+     * Called when the user clicks OK.
      */
     @FXML
     private void handleOK() {
         if (isInputValid()) {
-            String jobst = jobCodeField.getText();
-            int jobint=0;
-            jobint = Integer.getInteger(jobst);
-            
-            timeItem.setJobCode(Integer.getInteger(jobCodeField.toString()));
-            timeItem.setDescription(descriptionField.toString());
-            timeItem.setTimeSpentMins(Integer.getInteger(timeSpentField.toString()));
+            timeItem.setJobCode(Integer.parseInt(jobCodeField.getText()));
+            timeItem.setDescription(descriptionField.getText());
+            timeItem.setTimeSpentMins(Integer.parseInt(timeSpentField.getText()));
 
             OKClicked = true;
             maintenanceStage.close();
@@ -84,14 +82,15 @@ public class TimeMaintenanceController {
     }
 
     /**
-     * Called when the user clicks ok.
-     */
+     * Called when the user clicks cancel
+    */
     @FXML
     private void handleCancel() {
         OKClicked = false;
         maintenanceStage.close();
     }
     
+
     /**
      * Validate user input
      */

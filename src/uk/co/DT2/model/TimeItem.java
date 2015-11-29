@@ -22,8 +22,18 @@ public class TimeItem {
     private final BooleanProperty active = new SimpleBooleanProperty();
     private ObjectProperty<LocalDate> timeActivated ;
     
+    /**
+     * default constructor to create blank item
+     */
 
+    public TimeItem(){
+        
+        this(0,"",0);
+    }
     
+    /**
+     * constructor allowing job code, description and time
+     */
     public TimeItem(int jobCode, String description, int timeSpent){
         
         //this.jobCode = new SimpleIntegerProperty();
@@ -145,7 +155,14 @@ public class TimeItem {
     public BooleanProperty getActive() {
         return active;
     }
-
+    
+    /**
+     * @return the active
+     */
+    public boolean isActive() {
+        return active.get();
+    }
+    
     /**
      * @param active the active to set
      */
@@ -165,6 +182,26 @@ public class TimeItem {
      */
     public void setTimeActivated(ObjectProperty<LocalDate> timeActivated) {
         this.timeActivated = timeActivated;
+    }
+    
+    /**
+     * deactivate and save time spent
+     */
+    public void deactivate(){
+        if(active.get()){
+            setActive(false);
+            // TODO: determine time spent active and increase time spent
+        }
+    }
+    
+    /**
+     * activate and set start time
+     */
+    public void activate(){
+        if(!active.get()){
+            setActive(true);
+            // TODO: save current time as time activated
+        }
     }
     
     /**

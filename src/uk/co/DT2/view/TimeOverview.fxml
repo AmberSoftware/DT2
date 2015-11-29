@@ -9,30 +9,36 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.DT2.view.TimeOverviewController">
    <children>
-      <SplitPane dividerPositions="0.6153846153846154" layoutX="182.0" layoutY="94.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.8492462311557789" layoutX="182.0" layoutY="94.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane prefHeight="160.0" prefWidth="150.0">
                <children>
-                  <TableView fx:id="timeItemTable" layoutX="-39.0" layoutY="68.0" prefHeight="242.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="timeItemTable" editable="true" layoutX="-39.0" layoutY="68.0" prefHeight="242.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="jobCodeColumn" prefWidth="75.0" text="Job Code" />
-                      <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
-                        <TableColumn fx:id="timeSpentColumn" prefWidth="75.0" text="Time" />
-                        <TableColumn fx:id="activeColumn" prefWidth="75.0" text="Active" />
+                      <TableColumn fx:id="jobCodeColumn" prefWidth="110.0" text="Job Code" />
+                      <TableColumn fx:id="descriptionColumn" prefWidth="339.0" text="Description" />
+                        <TableColumn fx:id="timeSpentColumn" minWidth="0.0" prefWidth="92.0" text="Time" />
+                        <TableColumn fx:id="activeColumn" prefWidth="56.0" text="Active" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane>
+          <AnchorPane prefHeight="80.0" prefWidth="603.0">
                <children>
-                  <Label layoutX="47.0" layoutY="14.0" text="Active" />
-                  <ButtonBar layoutX="319.0" layoutY="101.0" prefHeight="40.0" prefWidth="200.0">
-                    <buttons>
-                      <Button mnemonicParsing="false" text="Delete" />
-                        <Button layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit" />
-                    </buttons>
+                  <Label fx:id="activeLabel" layoutX="47.0" layoutY="14.0" text="Active" />
+                  <ButtonBar layoutX="333.0" layoutY="11.0" prefHeight="39.0" prefWidth="425.0" AnchorPane.rightAnchor="10.0">
+                     <buttons>
+                        <Button fx:id="pauseResumeButton" layoutX="30.0" layoutY="13.0" minWidth="68.0" mnemonicParsing="false" onAction="#handlePauseResume" onKeyPressed="#handleAdd" prefHeight="29.0" text="Pause" />
+                        <Button minWidth="68.0" mnemonicParsing="false" onAction="#handleActivate" onKeyPressed="#handleAdd" prefHeight="29.0" text="Activate" />
+                        <Button layoutX="30.0" layoutY="16.0" minWidth="68.0" mnemonicParsing="false" onAction="#handleAdd" onKeyPressed="#handleAdd" prefHeight="29.0" text="Add" />
+                      <Button minWidth="68.0" mnemonicParsing="false" onAction="#handleDelete" onKeyPressed="#handleDelete" prefHeight="29.0" text="Delete" />
+                        <Button mnemonicParsing="false" onAction="#handleEdit" onKeyPressed="#handleEdit" prefHeight="9.0" prefWidth="194.0" text="Edit" />
+                        <Button mnemonicParsing="false" onAction="#handleExit" onKeyPressed="#handleExit" text="Exit" />
+                     </buttons>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
                   </ButtonBar>
-                  <Button layoutX="543.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                </children>
             </AnchorPane>
         </items>
