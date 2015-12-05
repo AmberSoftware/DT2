@@ -36,8 +36,8 @@ public class TimeOverviewController {
     private TableColumn<TimeItem, String> descriptionColumn;
     
     @FXML
-    //private TableColumn<TimeItem, String> timeSpentColumn;
-    private TableColumn<TimeItem, Integer> timeSpentColumn;
+    private TableColumn<TimeItem, String> timeSpentColumn;
+    //private TableColumn<TimeItem, Integer> timeSpentColumn;
     
     @FXML
     private TableColumn<TimeItem, Boolean> activeColumn;
@@ -66,7 +66,7 @@ public class TimeOverviewController {
         // load column data
         jobCodeColumn.setCellValueFactory(cellData -> cellData.getValue().getJobCodeProp());
         descriptionColumn.setCellValueFactory(cellData -> cellData.getValue().getDescription());
-        timeSpentColumn.setCellValueFactory(cellData -> cellData.getValue().getTimeSpentProp());
+        timeSpentColumn.setCellValueFactory(cellData -> cellData.getValue().getTimeSpentStr());
         activeColumn.setCellValueFactory(cellData -> cellData.getValue().getActive());
         
         // listen for mouse clicks on table
@@ -170,7 +170,7 @@ public class TimeOverviewController {
         // and activate selected item
         if(!timeItemTable.getSelectionModel().getSelectedItem().isActive()){
             handlePause();
-            timeItemTable.getSelectionModel().getSelectedItem().setActive(true);
+            timeItemTable.getSelectionModel().getSelectedItem().activate();
             lastActiveItem=timeItemTable.getSelectionModel().getSelectedItem();
             showActive();
         }    

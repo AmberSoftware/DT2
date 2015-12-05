@@ -23,15 +23,14 @@ public class TimeItem_UnitTest {
         TIs.add(new TimeItem(242654, "Emails/admin2",60));
         TIs.add(new TimeItem(123456, "Training",360));
         
-        TIs.get(0).setActive(true);
+        TIs.get(0).activate();
+        TIs.get(0).deactivate();
         TIs.get(0).setTimeSpent(180);
         TIs.get(0).setDescription("Updated description");
         
         for(TimeItem ti:TIs){
             System.out.println(ti.toString());
         }
-        
-        //todo: TIs.get(0).setTimeActive(true);
         
     }
     

@@ -6,6 +6,7 @@
 package uk.co.DT2.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 import javafx.beans.Observable;
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
@@ -20,7 +21,7 @@ public class TimeItem {
     private final StringProperty description = new SimpleStringProperty();
     private final IntegerProperty timeSpent = new SimpleIntegerProperty();
     private final BooleanProperty active = new SimpleBooleanProperty();
-    private ObjectProperty<LocalDate> timeActivated ;
+    private long timeActivated ;
     
     /**
      * default constructor to create blank item
@@ -41,6 +42,7 @@ public class TimeItem {
         setDescription(description);
         setTimeSpent(timeSpent);
         setActive(false);
+        timeActivated = 0;
     }
     
     /**
@@ -148,6 +150,28 @@ public class TimeItem {
     public void setTimeSpentMins(int timeSpent) {
         this.timeSpent.set(timeSpent*60);
     }
+    
+    public StringProperty getTimeSpentStr(){
+        StringProperty returnTime = new SimpleStringProperty();
+        
+        int hours = timeSpent.get()/3600;
+        String hourStr;
+        if (hours<10) hourStr = "0"+hours;
+        else hourStr=Integer.toString(hours);
+        
+        int mins = (timeSpent.get()-(hours*3600))/60;
+        String minStr;
+        if (mins<10) minStr = "0"+mins;
+        else minStr=Integer.toString(mins);
+        
+        int secs = timeSpent.get()-(hours*3600)-(mins*60);
+        String secStr;
+        if (secs<10) secStr = "0"+secs;
+        else secStr=Integer.toString(secs);
+        
+        returnTime.set(hourStr+":"+minStr+":"+secStr);
+        return returnTime;
+    }
 
     /**
      * @return the active
@@ -166,21 +190,21 @@ public class TimeItem {
     /**
      * @param active the active to set
      */
-    public void setActive(boolean active) {
+    private void setActive(boolean active) {
         this.active.set(active);
     }
 
     /**
      * @return the timeActivated
      */
-    public ObjectProperty<LocalDate> getTimeActivated() {
+    public long getTimeActivated() {
         return timeActivated;
     }
 
     /**
      * @param timeActivated the timeActivated to set
      */
-    public void setTimeActivated(ObjectProperty<LocalDate> timeActivated) {
+    public void setTimeActivated(long timeActivated) {
         this.timeActivated = timeActivated;
     }
     
@@ -190,7 +214,8 @@ public class TimeItem {
     public void deactivate(){
         if(active.get()){
             setActive(false);
-            // TODO: determine time spent active and increase time spent
+            Date now = new Date();
+            timeSpent.set(timeSpent.get() + (int) ((now.getTime() - timeActivated) / 1000));
         }
     }
     
@@ -200,7 +225,8 @@ public class TimeItem {
     public void activate(){
         if(!active.get()){
             setActive(true);
-            // TODO: save current time as time activated
+            Date now = new Date();
+            timeActivated = now.getTime();
         }
     }
     
