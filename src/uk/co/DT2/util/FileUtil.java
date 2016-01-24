@@ -59,7 +59,7 @@ public static void saveTimeItemDataToFile(File file, ObservableList<TimeItem> ti
         Marshaller m = context.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        // Wrapping our person data.
+        // Wrapping our time item data.
         TimeItemListWrapper wrapper = new TimeItemListWrapper();
         //ObservableList<TimeItem> timeItemData = FXCollections.observableArrayList();
 

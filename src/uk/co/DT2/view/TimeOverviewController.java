@@ -235,6 +235,29 @@ public class TimeOverviewController {
         }
     }
     
+    @FXML
+    private void handleSave(){
+        int selectedIndex = timeItemTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            // if selected item is active, then need to set screen to inactive
+            if(timeItemTable.getSelectionModel().getSelectedItem().isActive()){
+                showPause();
+                lastActiveItem=null;
+            }
+            // remove
+            timeItemTable.getItems().remove(selectedIndex);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Item Selected");
+            alert.setContentText("Please select an item in the table.");
+
+            alert.showAndWait();
+        }
+    }
+    
     /**
      * set display to active mode
      */

@@ -5,8 +5,13 @@
  */
 package uk.co.DT2.view;
 
+import java.io.File;
+import javafx.collections.ObservableList;
 import uk.co.DT2.MainApp;
 import javafx.fxml.FXML;
+import javafx.stage.FileChooser;
+import uk.co.DT2.model.TimeItem;
+import uk.co.DT2.util.FileUtil;
 
 /**
  *
@@ -29,4 +34,28 @@ public class RootLayoutController {
         System.exit(0);
     }
     
+        /**
+     * Opens a FileChooser to let the user select a file to save to.
+     */
+    @FXML
+    private void handleSaveAs() {
+        FileChooser fileChooser = new FileChooser();
+
+        // Set extension filter
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+                "XML files (*.xml)", "*.xml");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Show save file dialog
+        File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+
+        if (file != null) {
+            // Make sure it has the correct extension
+            if (!file.getPath().endsWith(".xml")) {
+                file = new File(file.getPath() + ".xml");
+            }
+            //ObservableList<TimeItem> til = mainApp.getTimeItemData();// for debugging
+            FileUtil.saveTimeItemDataToFile(file, mainApp.getTimeItemData());
+        }
+    }
 }
