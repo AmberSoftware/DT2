@@ -20,6 +20,6 @@
       <TextField fx:id="jobCodeField" layoutX="92.0" layoutY="46.0" prefHeight="27.0" prefWidth="71.0" />
       <TextField fx:id="descriptionField" layoutX="92.0" layoutY="81.0" prefHeight="27.0" prefWidth="364.0" />
       <TextField fx:id="timeSpentField" layoutX="92.0" layoutY="118.0" prefHeight="17.0" prefWidth="71.0" />
-      <Label alignment="TOP_CENTER" layoutX="163.0" layoutY="14.0" text="Edit Time Entry" textAlignment="CENTER" />
+      <Label alignment="TOP_CENTER" layoutX="163.0" layoutY="14.0" text="Time Entry" textAlignment="CENTER" />
    </children>
 </AnchorPane>

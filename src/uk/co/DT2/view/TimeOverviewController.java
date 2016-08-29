@@ -192,6 +192,7 @@ public class TimeOverviewController {
             
         }
         showPause();
+        refresh();
     }
     
     /**
@@ -210,6 +211,7 @@ public class TimeOverviewController {
             
         }
         showActive();
+        refresh();
     }
     
     @FXML
@@ -275,5 +277,12 @@ public class TimeOverviewController {
         activeLabel.setText("Not active");
         pauseResumeButton.setText("Resume");
     }
-
+    
+    @FXML
+    private void refresh(){
+        
+        // load column data
+        timeItemTable.getColumns().get(0).setVisible(false);
+        timeItemTable.getColumns().get(0).setVisible(true);
+    }
 }
